@@ -8,24 +8,30 @@ const skills = [
   { name: "React", category: "frontend" },
   { name: "Tailwind CSS", category: "frontend" },
 
-  // Tools
-  { name: "Git/GitHub", category: "tools" },
-  { name: "Figma", category: "tools" },
-  { name: "Visual Studio Code", category: "tools" },
-  { name: "Blender", category: "tools" },
-  { name: "Canva", category: "tools" },
-  { name: "CapCut", category: "tools" },
-  { name: "Adobe Premiere", category: "tools" },
-  { name: "Microsoft Word", category: "tools" },
-  { name: "Microsoft Excel", category: "tools" },
-  { name: "Microsoft PowerPoint", category: "tools" },
+  // version control
+  { name: "Git/GitHub", category: "version control" },
+  { name: "Visual Studio Code", category: "version control" },
+
+  //office tools
+  { name: "Microsoft Word", category: "productivity & Office tools" },
+  { name: "Microsoft Excel", category: "productivity & Office tools" },
+  { name: "Microsoft PowerPoint", category: "productivity & Office tools" },
+
+  //design and creative
+  { name: "Figma", category: "design and creative" },
+  { name: "Blender", category: "design and creative" },
+  { name: "Canva", category: "design and creative" },
+  { name: "CapCut", category: "design and creative" },
+  { name: "Adobe Premiere", category: "design and creative" },
+  { name: "Adobe Photoshop", category: "design and creative" },
+
 
   // Database
   { name: "MySQL", category: "database" }
 
 ];
 
-const categories = ["all", "frontend", "tools", "database"];
+const categories = ["all", "frontend", "database", "design and creative", "productivity & Office tools", "version control"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
