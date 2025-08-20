@@ -15,7 +15,7 @@ const projects = [
     description: "A 3D model created using Blender, showcasing my skills in 3D design.",
     image: "projects/pumpkin.jpg",
     tags: ["Blender", "3D Design", "Modeling", "Rendering"],
-    demoUrl: "#"
+    demoUrl: "https://drive.google.com/drive/folders/1QfikfGbsvrVFM6atfJN72bB22RtKitSz?usp=sharing"
   },
   {
     id: 3,
@@ -30,7 +30,8 @@ const projects = [
     title: "Editing",
     description: "Crafting compelling visuals through logo editing, pubmat and video editing.",
     image: "projects/women-project.jpg",
-    tags: ["Logo", "Pubmats", "Video Editing"]
+    tags: ["Logo", "Pubmats", "Video Editing"],
+    demoUrl: "https://drive.google.com/drive/folders/1x0FGXdUanGhoABopMOcUNORmsOHXNWpQ?usp=sharing"
   }
 ];
 
