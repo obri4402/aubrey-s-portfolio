@@ -14,7 +14,7 @@ export const HeroSection = () => {
             <span className="text-gradient opacity-0 ml-2 animate-fade-in-delay-2">Nastor</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Aspiring software engineer learning ReactJS, with UI/UX, JavaScript, HTML/CSS skills & smart farming project experience. Eager to grow!
+            Aspiring Software Engineer with skills in ReactJS, UI/UX, JavaScript, and HTML/CSS. Experienced in developing a smart farming project and eager to expand technical expertise while contributing to innovative solutions.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">

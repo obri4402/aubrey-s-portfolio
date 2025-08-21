@@ -44,7 +44,7 @@ export const ProjectsSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of the projects I worked on in college that showcase my skills and creativity. Click on the project titles to view more details or explore the live demos.
+          Here are some of the projects I worked on in college that showcase my skills and creativity. Click the external link to view more details or explore the live demos.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
