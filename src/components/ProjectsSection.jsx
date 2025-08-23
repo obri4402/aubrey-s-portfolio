@@ -32,7 +32,18 @@ const projects = [
     image: "projects/women-project.jpg",
     tags: ["Logo", "Pubmats", "Video Editing"],
     demoUrl: "https://drive.google.com/drive/folders/1x0FGXdUanGhoABopMOcUNORmsOHXNWpQ?usp=sharing"
+  },
+
+  {
+    id: 5,
+    title: "Thesis for Automatic Irrigation System",
+    description: "Plantlet: A wireless application for soil moisture, sunlight photoresistor monitoring and automated watering for lettuce.",
+    image: "projects/plantletUI.jpg",
+    tags: ["Automatic Irrigation", "Sunlight Monitoring", "Moisture Sensor"],
+    demoUrl: "https://drive.google.com/drive/folders/1WeCnqIb4saSVUFx1R3wobZ0oyA6ZJZD_?usp=sharing"
   }
+
+
 ];
 
 export const ProjectsSection = () => {
