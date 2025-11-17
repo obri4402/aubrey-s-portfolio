@@ -37,7 +37,7 @@ const projects = [
   {
     id: 5,
     title: "Thesis for Automatic Irrigation System",
-    description: "Plantlet: A wireless application for soil moisture, sunlight photoresistor monitoring and automated watering for lettuce.",
+    description: "A Wireless Application for Soil Moisture, Sunlight Monitoring, and Automatic Irrigation System using Arduino for Lactuca sativa.",
     image: "projects/plantletUI.jpg",
     tags: ["Automatic Irrigation", "Sunlight Monitoring", "Moisture Sensor"],
     demoUrl: "https://drive.google.com/drive/folders/1WeCnqIb4saSVUFx1R3wobZ0oyA6ZJZD_?usp=sharing"

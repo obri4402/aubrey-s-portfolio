@@ -2,11 +2,10 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  // Frontend
-  { name: "HTML/CSS", category: "frontend" },
-  { name: "JavaScript", category: "frontend" },
+  // Frontend / Web Development
   { name: "React", category: "frontend" },
   { name: "Tailwind CSS", category: "frontend" },
+  { name: "HTML/CSS", category: "frontend" },
 
   // version control
   { name: "Git/GitHub", category: "version control" },
@@ -27,11 +26,16 @@ const skills = [
 
 
   // Database
-  { name: "MySQL", category: "database" }
+  { name: "MySQL", category: "database" },
+
+  // Programming Languages`
+  { name: "Java", category: "backend" },
+  { name: "JavaScript", category: "backend" },
+  { name: "PHP", category: "backend" },
 
 ];
 
-const categories = ["all", "frontend", "database", "design and creative", "productivity & Office tools", "version control"];
+const categories = ["all", "frontend", "database", "design and creative", "productivity & Office tools", "version control", "backend"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
