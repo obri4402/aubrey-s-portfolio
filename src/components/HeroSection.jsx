@@ -14,7 +14,9 @@ export const HeroSection = () => {
             <span className="text-gradient opacity-0 ml-2 animate-fade-in-delay-2">Nastor</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Aspiring Software Engineer with experience in ReactJS, UI/UX, JavaScript, and HTML/CSS. Currently strengthening my foundation by learning Java as my core programming language. I have hands-on experience developing a smart farming project and am committed to expanding my technical capabilities while contributing to innovative, high-impact solutions.
+            Aspiring Software Engineer with hands-on experience in ReactJS, JavaScript, HTML/CSS, PHP/MySQL, and UI/UX design, currently deepening my expertise in Java as a core programming language. I have contributed to real-world projects, including a smart farming system, and continuously expand my technical skill set to deliver innovative, high-impact solutions.
+
+            Alongside my development work, I serve as a freelance Technical Support Specialist for the Local Government Unit of Torrijos, Marinduque, where I assist in system implementation, maintenance, and end-user support.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
