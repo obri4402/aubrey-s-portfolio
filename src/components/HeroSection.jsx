@@ -20,18 +20,9 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3 px-2 md:px-0">
-            Aspiring Software Engineer with hands-on experience in ReactJS,
-            JavaScript, HTML/CSS, PHP/MySQL, and UI/UX design, currently
-            deepening my expertise in Java as a core programming language. I
-            have contributed to real-world projects, including a smart farming
-            system, and continuously expand my technical skill set to deliver
-            innovative, high-impact solutions.
-            <br className="hidden md:block" />
-            <br className="hidden md:block" />
-            Alongside my development work, I serve as a freelance Technical
-            Support Specialist for the Local Government Unit of Torrijos,
-            Marinduque, where I assist in system implementation, maintenance,
-            and end-user support.
+            Full-Stack Developer with hands-on experience in ReactJS, JavaScript, HTML/CSS, PHP/MySQL, UI/UX design, and Java development. Contributed to real-world projects, including a smart farming system, with a focus on building efficient, user-centered, and scalable solutions.
+
+            Currently serving as a Freelance Technical Support Specialist for the Local Government Unit of Torrijos, Marinduque, providing system implementation, maintenance, and end-user technical support.
           </p>
 
           <div className="pt-2 md:pt-4 opacity-0 animate-fade-in-delay-4">
