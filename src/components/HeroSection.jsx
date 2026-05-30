@@ -20,9 +20,7 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3 px-2 md:px-0">
-            Full-Stack Developer with hands-on experience in ReactJS, JavaScript, HTML/CSS, PHP/MySQL, UI/UX design, and Java development. Contributed to real-world projects, including a smart farming system, with a focus on building efficient, user-centered, and scalable solutions.
-
-            Currently serving as a Freelance Technical Support Specialist for the Local Government Unit of Torrijos, Marinduque, providing system implementation, maintenance, and end-user technical support.
+            Computer Science graduate with experience in web development, database management, system implementation, and technical support. Skilled in ReactJS, JavaScript, HTML/CSS, PHP, MySQL, and Java, with a strong foundation in software development and system analysis. Interested in developing efficient systems, solving technical problems, and continuously growing in the field of information technology and software development.
           </p>
 
           <div className="pt-2 md:pt-4 opacity-0 animate-fade-in-delay-4">
