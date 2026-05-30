@@ -16,18 +16,12 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground text-sm md:text-base">
-              Hello! I'm Aubrey — I love creating things that look good and work
-              even better. I'm into web development, UI/UX design, and video
-              editing. Whether I'm coding a responsive website, designing a
-              clean user interface, or editing a video that tells a story, I'm
-              all about bringing creative ideas to life.
+              I’m Aubrey, a creative and detail-oriented web developer with interests in UI/UX design and video editing. I enjoy building responsive and user-friendly websites and crafting clean, intuitive interfaces that enhance user experience.
+
             </p>
 
             <p className="text-sm md:text-base">
-              I've worked with tools like HTML, CSS, JavaScript, React, Figma,
-              and Adobe Premiere Pro. I'm always learning and exploring new ways
-              to make cool and meaningful digital experiences. If it involves
-              creativity and tech, I'm in!
+              I’m continuously expanding my skills in modern web and creative technologies.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4 justify-center sm:justify-start">
