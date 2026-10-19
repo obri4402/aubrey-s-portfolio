@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -19,77 +20,114 @@ export const Navbar = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // While the mobile menu is open: lock page scroll, close on Escape,
+  // and close automatically if the viewport grows to desktop size.
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setIsMenuOpen(false);
+    };
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const handleResize = () => {
+      if (desktop.matches) setIsMenuOpen(false);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    desktop.addEventListener("change", handleResize);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+      desktop.removeEventListener("change", handleResize);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <nav
-      className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        // Tighter padding on mobile, comfortable on desktop
-        isScrolled
-          ? "py-2 md:py-3 bg-background/80 backdrop-blur-md shadow-xs"
-          : "py-3 md:py-5"
-      )}
-    >
-      <div className="container px-4 md:px-6 flex items-center justify-between">
-        <a
-          className="text-lg md:text-xl font-bold text-primary flex items-center"
-          href="#hero"
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-40 transition-all duration-300",
+          isScrolled || isMenuOpen
+            ? "py-2 md:py-3 bg-background/85 backdrop-blur-md shadow-xs border-b border-border/60"
+            : "py-3 md:py-5 border-b border-transparent"
+        )}
+      >
+        <nav
+          aria-label="Main"
+          className="container flex items-center justify-between gap-4"
         >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Aubrey's </span>{" "}
-            Portfolio
-          </span>
-        </a>
+          <a
+            className="text-lg md:text-xl font-bold text-primary flex items-center min-h-11"
+            href="#hero"
+          >
+            <span className="text-glow text-foreground">Aubrey's</span>
+            &nbsp;Portfolio
+          </a>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex space-x-6 lg:space-x-8">
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+          <div className="flex items-center gap-1 md:gap-6">
+            {/* Desktop nav */}
+            <ul className="hidden md:flex items-center gap-6 lg:gap-8">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className="inline-block py-2 text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <ThemeToggle />
+
+            {/* Mobile menu button */}
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-full text-foreground hover:bg-primary/10 transition-colors"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
             >
-              {item.name}
-            </a>
-          ))}
-        </div>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </nav>
+      </header>
 
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Mobile nav overlay */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
-        >
-          <div className="flex flex-col space-y-6 text-xl text-center">
-            {navItems.map((item, key) => (
+      {/* Mobile nav overlay. Rendered outside the header because the header's
+          backdrop blur would otherwise trap this fixed element inside it. */}
+      <div
+        id="mobile-menu"
+        className={cn(
+          "fixed inset-0 z-30 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center md:hidden",
+          "transition-[opacity,visibility] duration-300",
+          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        )}
+      >
+        <ul className="flex flex-col items-center gap-2 text-xl">
+          {navItems.map((item) => (
+            <li key={item.href}>
               <a
-                key={key}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300 py-1"
+                className="block px-6 py-3 text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </a>
-            ))}
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
-    </nav>
+    </>
   );
 };

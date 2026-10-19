@@ -30,12 +30,11 @@ export const ThemeToggle = () => {
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
       className={cn(
-        // Fixed position: tighter on mobile (top-3 right-3), comfortable on desktop (top-5 right-5)
-        "fixed top-3 right-3 md:top-5 md:right-5 z-50",
-        "p-2 rounded-full transition-colors duration-300",
-        "focus:outline-none focus:ring-2 focus:ring-primary/50"
+        "inline-flex h-11 w-11 items-center justify-center rounded-full",
+        "transition-colors duration-300 hover:bg-primary/10"
       )}
       aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     >

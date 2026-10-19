@@ -1,111 +1,92 @@
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import {
+  Braces,
+  Database,
+  LayoutTemplate,
+  Palette,
+  FileText,
+  Wrench,
+} from "lucide-react";
 
-const skills = [
-  // Frontend
-  { name: "React", category: "frontend" },
-  { name: "HTML/CSS", category: "frontend" },
-  { name: "Tailwind CSS", category: "frontend" },
-
-  // Frameworks
-  { name: "Next.js", category: "frameworks" },
-  { name: "Express.js", category: "frameworks" },
-  { name: "Bootstrap", category: "frameworks" },
-
-  // Backend / Programming Languages
-  { name: "Java", category: "backend" },
-  { name: "JavaScript", category: "backend" },
-  { name: "PHP", category: "backend" },
-
-  // Database
-  { name: "MySQL", category: "database" },
-
-  // Tools / Version Control
-  { name: "Git", category: "tools" },
-  { name: "GitHub", category: "tools" },
-  { name: "Visual Studio Code", category: "tools" },
-
-  // Design & Creative
-  { name: "Figma", category: "design" },
-  { name: "Canva", category: "design" },
-  { name: "Blender", category: "design" },
-  { name: "CapCut", category: "design" },
-  { name: "Adobe Premiere Pro", category: "design" },
-  { name: "Adobe Photoshop", category: "design" },
-
-  // Productivity
-  { name: "Microsoft Word", category: "productivity" },
-  { name: "Microsoft Excel", category: "productivity" },
-  { name: "Microsoft PowerPoint", category: "productivity" },
-];
-
-const categories = [
-  "all",
-  "frontend",
-  "frameworks",
-  "backend",
-  "database",
-  "tools",
-  "design",
-  "productivity",
+const skillGroups = [
+  {
+    title: "Programming Languages",
+    icon: Braces,
+    skills: ["JavaScript", "Java", "PHP"],
+  },
+  {
+    title: "Frontend Development",
+    icon: LayoutTemplate,
+    skills: ["React", "Next.js", "HTML/CSS", "Tailwind CSS", "Bootstrap"],
+  },
+  {
+    title: "Backend & Databases",
+    icon: Database,
+    skills: ["Express.js", "MySQL"],
+  },
+  {
+    title: "Tools & Platforms",
+    icon: Wrench,
+    skills: ["Git", "GitHub", "Visual Studio Code"],
+  },
+  {
+    title: "Design & Creative",
+    icon: Palette,
+    skills: [
+      "Figma",
+      "Canva",
+      "Blender",
+      "CapCut",
+      "Adobe Premiere Pro",
+      "Adobe Photoshop",
+    ],
+  },
+  {
+    title: "Productivity",
+    icon: FileText,
+    skills: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint"],
+  },
 ];
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredSkills = skills.filter(
-    (skill) =>
-      activeCategory === "all" || skill.category === activeCategory
-  );
-
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-
-        {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+    <section id="skills" className="py-20 md:py-24 relative bg-secondary/40">
+      <div className="container max-w-5xl">
+        <h2 className="section-title">
           My <span className="text-primary">Skills</span>
         </h2>
+        <p className="section-subtitle mb-10 md:mb-14">
+          Technologies and tools I work with, grouped by area.
+        </p>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary"
-              )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {skillGroups.map(({ title, icon, skills }) => {
+            const Icon = icon;
+            return (
+            <article
+              key={title}
+              className="gradient-border p-5 md:p-6 text-left card-hover"
             >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill) => (
-            <div
-              key={skill.name}
-              className="bg-card p-6 rounded-lg shadow-sm card-hover"
-            >
-              <div className="text-center">
-                <h3 className="font-semibold text-lg">
-                  {skill.name}
-                </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-primary/10 shrink-0">
+                  <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                </div>
+                <h3 className="font-semibold text-lg leading-snug">{title}</h3>
               </div>
 
-              {/* Simple progress bar placeholder */}
-              <div className="w-full bg-secondary/50 h-2 rounded-full mt-4 overflow-hidden">
-                <div className="h-full w-2/3 bg-primary rounded-full"></div>
-              </div>
-            </div>
-          ))}
+              <ul className="flex flex-wrap gap-2">
+                {skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="px-3 py-1.5 text-sm font-medium rounded-full border border-border bg-secondary text-secondary-foreground"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </article>
+            );
+          })}
         </div>
-
       </div>
     </section>
   );

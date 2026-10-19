@@ -1,5 +1,3 @@
-import { Contact, Star } from "lucide-react";
-import { ThemeToggle } from "../components/ThemeToggle";
 import { StarBackground } from "@/components/StarBackground";
 import { Navbar } from "../components/Navbar";
 import { HeroSection } from "../components/HeroSection";
@@ -11,19 +9,22 @@ import { Footer } from "../components/Footer";
 
 export const Home = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-clip">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+      >
+        Skip to content
+      </a>
 
-      {/* Theme Toggle Button */}
-      <ThemeToggle />
-
-      {/*Background Effects*/}
+      {/* Background effects */}
       <StarBackground />
 
-      {/*Navbar */}
+      {/* Navbar (includes the theme toggle) */}
       <Navbar />
 
-      {/*Main Content*/}
-      <main>
+      {/* Main content */}
+      <main id="main" className="relative">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
@@ -31,9 +32,7 @@ export const Home = () => {
         <ContactsSection />
       </main>
 
-      {/*Footer*/}
       <Footer />
-
     </div>
   );
 };

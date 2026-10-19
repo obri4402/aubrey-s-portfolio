@@ -6,7 +6,7 @@ const projects = [
     title: "Design for Attendance Management System",
     description:
       "A UI/UX design project for a Faculty Attendance Management System, developed as part of our college thesis using Wix.",
-    image: "projects/Logpic1.jpg",
+    image: "/projects/Logpic1.jpg",
     tags: ["Wix", "UI/UX Design", "Attendance System"],
     demoUrl: "https://ericajoybatican2.wixsite.com/logpic"
   },
@@ -16,7 +16,7 @@ const projects = [
     title: "Good Luck Letter Website",
     description:
       "A personal “good luck” letter website built using HTML, CSS, and JavaScript, created to practice web development skills while expressing admiration for someone special.",
-    image: "projects/love-letter.png",
+    image: "/projects/love-letter.png",
     tags: ["HTML", "CSS", "JavaScript", "Creative Project"],
     demoUrl: "https://for-my-idol.vercel.app/"
   },
@@ -26,7 +26,7 @@ const projects = [
     title: "Login and Registration System",
     description:
       "A login and registration system developed using PHP, MySQL, and JavaScript with user authentication and database integration, hosted on InfinityFree.",
-    image: "projects/login.png",
+    image: "/projects/login.png",
     tags: ["PHP", "JavaScript", "MySQL", "Authentication", "InfinityFree"],
     demoUrl: "https://aubrey-nastor.infinityfreeapp.com"
   },
@@ -36,7 +36,7 @@ const projects = [
     title: "Blender 3D Model",
     description:
       "A 3D model created using Blender, showcasing my skills in 3D design.",
-    image: "projects/pumpkin.jpg",
+    image: "/projects/pumpkin.jpg",
     tags: ["Blender", "3D Design", "Modeling", "Rendering"],
     demoUrl:
       "https://drive.google.com/drive/folders/1QfikfGbsvrVFM6atfJN72bB22RtKitSz?usp=sharing"
@@ -47,7 +47,7 @@ const projects = [
     title: "Figma Designing",
     description:
       "Exploring UI/UX fundamentals through Figma. This project helped me learn layout design, typography, and basic prototyping.",
-    image: "projects/figma.jpg",
+    image: "/projects/figma.jpg",
     tags: ["Figma", "Web Design", "Prototype"]
   },
 
@@ -56,7 +56,7 @@ const projects = [
     title: "Editing",
     description:
       "Crafting compelling visuals through logo editing, pubmat and video editing.",
-    image: "projects/women-project.jpg",
+    image: "/projects/women-project.jpg",
     tags: ["Logo", "Pubmats", "Video Editing"],
     demoUrl:
       "https://drive.google.com/drive/folders/1x0FGXdUanGhoABopMOcUNORmsOHXNWpQ?usp=sharing"
@@ -67,7 +67,7 @@ const projects = [
     title: "Thesis for Automatic Irrigation System",
     description:
       "A Wireless Application for Soil Moisture, Sunlight Monitoring, and Automatic Irrigation System using Arduino for Lactuca sativa.",
-    image: "projects/plantletUI.jpg",
+    image: "/projects/plantletUI.jpg",
     tags: [
       "Automatic Irrigation",
       "Sunlight Monitoring",
@@ -81,62 +81,66 @@ const projects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+    <section id="projects" className="py-20 md:py-24 relative">
+      <div className="container max-w-5xl">
+        <h2 className="section-title">
           Featured <span className="text-primary">Projects</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+        <p className="section-subtitle mb-10 md:mb-14">
           Here are some of the projects I worked on in college that showcase my
-          skills and creativity. Click the external link to view more details or
-          explore the live demos.
+          skills and creativity. Open a project to view more details or explore
+          the live demo.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project) => (
-            <div
+            <article
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className="group flex flex-col bg-card rounded-xl border border-border overflow-hidden shadow-xs card-hover text-left"
             >
-              <div className="h-48 overflow-hidden">
+              <div className="aspect-[16/10] overflow-hidden bg-secondary">
                 <img
                   src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt={`Preview of ${project.title}`}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-xl font-semibold mb-1">
+              <div className="flex flex-1 flex-col p-5 md:p-6">
+                <h3 className="text-lg md:text-xl font-semibold leading-snug">
                   {project.title}
                 </h3>
 
-                <p className="text-muted-foreground text-sm mb-4">
+                <p className="text-muted-foreground text-sm leading-relaxed mt-2 mb-4">
                   {project.description}
                 </p>
 
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
+                <ul className="flex flex-wrap gap-2 mb-5" aria-label="Technologies and topics">
+                  {project.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="px-2.5 py-1 text-xs font-medium border border-border rounded-full bg-secondary text-secondary-foreground"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+
+                {(project.demoUrl || project.githubUrl) && (
+                  <div className="mt-auto flex flex-wrap gap-x-5 gap-y-2">
                     {project.demoUrl && (
                       <a
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-primary hover:text-primary transition-colors duration-300"
+                        className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4"
                       >
-                        <ExternalLink size={20} />
+                        <ExternalLink size={18} aria-hidden="true" />
+                        View project
+                        <span className="sr-only">: {project.title} (opens in a new tab)</span>
                       </a>
                     )}
 
@@ -145,26 +149,29 @@ export const ProjectsSection = () => {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-primary hover:text-primary transition-colors duration-300"
+                        className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4"
                       >
-                        <Github size={20} />
+                        <Github size={18} aria-hidden="true" />
+                        Source code
+                        <span className="sr-only">: {project.title} (opens in a new tab)</span>
                       </a>
                     )}
                   </div>
-                </div>
+                )}
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
         <div className="text-center mt-12">
           <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
+            className="cosmic-button"
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/obri4402"
           >
-            Check My Github <ArrowRight size={16} />
+            Check My GitHub <ArrowRight size={16} aria-hidden="true" />
+            <span className="sr-only">(opens in a new tab)</span>
           </a>
         </div>
       </div>

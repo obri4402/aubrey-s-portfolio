@@ -3,7 +3,6 @@ import {
   Linkedin,
   Mail,
   MapPin,
-  Phone,
   Send,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -73,77 +72,79 @@ export const ContactsSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+    <section id="contact" className="py-20 md:py-24 relative bg-secondary/40">
+      <div className="container max-w-5xl">
+        <h2 className="section-title">
           Get In <span className="text-primary">Touch</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+        <p className="section-subtitle mb-10 md:mb-14">
           I'm always happy to connect! Whether it's for a potential project,
-          feedback, or a quick chat—just drop a message.
+          feedback, or a quick chat, just drop a message.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 text-left">
           {/* LEFT SIDE - CONTACT INFO */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-xl md:text-2xl font-semibold">Contact Information</h3>
 
-            <div className="space-y-6 justify-center">
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4">
+                <div className="p-3 rounded-full bg-primary/10 shrink-0">
+                  <Mail className="h-5 w-5 md:h-6 md:w-6 text-primary" aria-hidden="true" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h4 className="font-medium">Email</h4>
                   <a
                     href="mailto:aubreylnastor@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="inline-block py-1 text-muted-foreground hover:text-primary transition-colors break-all"
                   >
                     aubreylnastor@gmail.com
                   </a>
                 </div>
-              </div>
+              </li>
 
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />
+              <li className="flex items-start gap-4">
+                <div className="p-3 rounded-full bg-primary/10 shrink-0">
+                  <MapPin className="h-5 w-5 md:h-6 md:w-6 text-primary" aria-hidden="true" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h4 className="font-medium">Location</h4>
-                  <span className="text-muted-foreground hover:text-primary transition-colors">
-                    Dasmarinas City, Cavite
-                  </span>
+                  <p className="py-1 text-muted-foreground">Dasmarinas City, Cavite</p>
                 </div>
-              </div>
-            </div>
+              </li>
+            </ul>
 
-            <div className="pt-8">
-              <h4 className="font-medium mb-4">Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
+            <div>
+              <h4 className="font-medium mb-3">Connect With Me</h4>
+              <div className="flex gap-3">
                 <a
                   href="https://www.linkedin.com/in/aubrey-nastor-05208324b/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn (opens in a new tab)"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
                 >
-                  <Linkedin />
+                  <Linkedin size={20} aria-hidden="true" />
                 </a>
                 <a
                   href="https://www.instagram.com/itsobrii/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Instagram (opens in a new tab)"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
                 >
-                  <Instagram />
+                  <Instagram size={20} aria-hidden="true" />
                 </a>
               </div>
             </div>
           </div>
 
           {/* RIGHT SIDE - CONTACT FORM */}
-          <div className="bg-card p-8 rounded-lg shadow-xs">
-            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
+          <div className="bg-card p-5 sm:p-8 rounded-xl border border-border shadow-xs">
+            <h3 className="text-xl md:text-2xl font-semibold mb-6">Send a Message</h3>
 
-            <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
+            <form ref={formRef} className="space-y-5" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Your Name
@@ -153,7 +154,8 @@ export const ContactsSection = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  autoComplete="name"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-base focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="John Batumbakal..."
                 />
               </div>
@@ -167,7 +169,8 @@ export const ContactsSection = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  autoComplete="email"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-base focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="john@gmail.com"
                 />
               </div>
@@ -180,7 +183,8 @@ export const ContactsSection = () => {
                   id="message"
                   name="message"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-base focus:outline-none focus:ring-2 focus:ring-primary resize-y"
                   placeholder="Hello Aubrey, I would like to discuss..."
                 />
               </div>
@@ -188,11 +192,15 @@ export const ContactsSection = () => {
               <button
                 type="submit"
                 disabled={formStatus.submitting}
-                className={cn("cosmic-button w-full flex items-center justify-center gap-2")}
+                className={cn("cosmic-button w-full")}
               >
                 {formStatus.submitting ? "Sending..." : "Send Message"}
-                <Send size={16} />
+                <Send size={16} aria-hidden="true" />
               </button>
+
+              <p className="sr-only" role="status" aria-live="polite">
+                {formStatus.message}
+              </p>
             </form>
           </div>
         </div>
